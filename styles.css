@@ -1,0 +1,45 @@
+body {
+  background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
+  color: rgb(254 243 199 / var(--tw-text-opacity, 1));
+  font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .025em;
+}
+
+li {
+  display: inline;
+}
+
+svg {
+  padding: 5px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 4rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(6 78 59 / var(--tw-bg-opacity, 1));
+    font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
+    line-height: 1;
+    font-size: 1.875rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(209 250 229 / var(--tw-text-opacity, 1));
+    text-decoration-line: none;
+}
+
+.\[\&\>span\]\:separator > span:not(:last-child)::after {
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+    vertical-align: middle;
+    font-size: 0.5em;
+    --tw-text-opacity: 1;
+    color: rgb(251 191 36 / var(--tw-text-opacity, 1));
+    --tw-content: " ✦ ";
+    content: var(--tw-content);
+}
