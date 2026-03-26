@@ -1,5 +1,5 @@
-const Result = ({correct}: any) => {
-    return(
+const Result = ({correct, answerCorrect}: any) => {
+    return (
         <>
             Number correct: {correct}
         </>

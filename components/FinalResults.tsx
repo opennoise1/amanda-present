@@ -1,7 +1,5 @@
-
-
-const FinalResults = ({correct}: any) => {
-    return <div>Number correct: {correct}</div>
+const FinalResults = ({numberCorrect}: any) => {
+    return <div>Number correct: {numberCorrect}</div>
 }
 
 export default FinalResults;

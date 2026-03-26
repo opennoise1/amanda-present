@@ -21,14 +21,22 @@ const QuestionPages: { [key: number] : number } = {
     // Tim Heidecker?
 }
 
-const Question = ({ question, setQuestion }: any ) => {
+const Question = ({ question, setQuestion, currInput, setCurrInput, numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect, answered }: any ) => {
     const [title, setTitle] = useState<string | null>('');
     const [categories, setCategories] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
+    useEffect(() => {
+        if (currInput == QuestionPages[question]) {
+            setAnswerCorrect(true);
+            setNumberCorrect(numberCorrect + 1);
+        } else {
+            setAnswerCorrect(false);
+        }
+    }, [answered]);
+
     useEffect(() => {   
         const fetchWikiPage = async (): Promise<void> => {
-            setIsLoading(true);
             try {
                 const page: wtf.Document | null = await wtf.fetch(QuestionPages[question]);
                 if (page) { 
@@ -37,15 +45,13 @@ const Question = ({ question, setQuestion }: any ) => {
                 }
             } catch (error: unknown) {
                 console.error("Error fetching Wikipedia page");
-            } finally {
-                setIsLoading(false);
             }
         }
 
         fetchWikiPage();
     }, [question]);
 
-    const props: any = { question, setQuestion };
+    const props: any = { question, setQuestion, currInput, setCurrInput };
 
     return (
         <>
@@ -60,4 +66,4 @@ const Question = ({ question, setQuestion }: any ) => {
     )
 }
 
-export default Question;
+export { Question, QuestionPages };
