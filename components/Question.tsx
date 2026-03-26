@@ -1,44 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AnswerInput from "./AnswerInput";
 import wtf from "wtf_wikipedia";
 
-const QuestionPages: { [key: number] : number } = {
-    // Question number: Wikipedia Page ID
-    1: 1485962, // The Mask
-    2: 537416, // Ace Ventura: When Nature Calls
-    3: 1042287, // Campari
-    4: 27929, // Scrabble
-    5: 83688, // Beyonce
-    6: 22847481, // Guitar Hotel
-    7: 649382, // Pareidolia
-    8: 47150958, // Imperator Furiosa
-    9: 4848143, // New York Yankees
-    10: 72908535, // Rick Glassman
-    11: 398837, // Darren Hayes
-    // Specific casino?
-    // The Florida Project
-    // PinkPantheress
-    // Tim Heidecker?
+const QuestionPages: { [key: number] : [number, string] } = {
+    // Question number: [Wikipedia Page ID, [Title Options]]
+    1: [1485962, "The Mask"],
+    2: [537416, "Ace Ventura: When Nature Calls"],
+    3: [1042287, "Campari"],
+    4: [27929, "Scrabble"],
+    5: [83688, "Beyonce"],
+    6: [22847481, "Seminole Hard Rock Hotel & Casino Hollywood"],
+    7: [649382, "Pareidolia"],
+    8: [47150958, "Imperator Furiosa"],
+    9: [4848143, "New York Yankees"],
+    10: [72908535, "Rick Glassman"],
+    11: [398837, "Darren Hayes"],
 }
 
-const Question = ({ question, setQuestion, currInput, setCurrInput, numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect, answered }: any ) => {
-    const [title, setTitle] = useState<string | null>('');
-    const [categories, setCategories] = useState<string[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-
+const Question = ({ question, setQuestion, currInput, setCurrInput, numberCorrect, setNumberCorrect, setAnswerCorrect, answered, setTitle, categories, setCategories }: any ) => {
+    
     useEffect(() => {
-        if (currInput == QuestionPages[question]) {
-            setAnswerCorrect(true);
-            setNumberCorrect(numberCorrect + 1);
-        } else {
-            setAnswerCorrect(false);
-        }
-    }, [answered]);
+        setTitle(QuestionPages[question][1]);
+    }, [question])
 
     useEffect(() => {   
         const fetchWikiPage = async (): Promise<void> => {
             try {
-                const page: wtf.Document | null = await wtf.fetch(QuestionPages[question]);
+                const page: wtf.Document | null = await wtf.fetch(QuestionPages[question][0]);
                 if (page) { 
                     setTitle(page.title()); 
                     setCategories(page.categories());
@@ -55,7 +43,6 @@ const Question = ({ question, setQuestion, currInput, setCurrInput, numberCorrec
 
     return (
         <>
-            <div id='title'>{title}</div>
             <ul>
                 {categories.map((category: string, index: number) => { 
                     return <span><li key={'cat' + index} id={'cat' + index}>{category + " ✦ "}</li></span>
