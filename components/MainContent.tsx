@@ -1,30 +1,22 @@
 import Instructions from "./Instructions";
 import Result from "./Result";
 import FinalResults from "./FinalResults";
-import { Question } from "./Question";
-import { useEffect, useState } from "react"
+import Question from "./Question";
+import { useEffect } from "react"
 
-const MainContent = ({question, setQuestion, answered, setAnswered, numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect}: any) => {
-  const [currInput, setCurrInput] = useState<string>("");
-  const [title, setTitle] = useState<string | null>('');
-  const [categories, setCategories] = useState<string[]>([]);
+const MainContent = ({question, setQuestion, answered, setAnswered, 
+  numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
+  title, setTitle, currInput, setCurrInput, categories, setCategories, isLoading}: any) => {
 
-  useEffect(() => {
-      if (currInput == title) {
-          setAnswerCorrect(true);
-          setNumberCorrect(numberCorrect + 1);
-      } else {
-          setAnswerCorrect(false);
-      }
-  }, [answered]);
-
-  const props: any = {question, setQuestion, 
+  const props: any = { question, setQuestion, 
     answered, setAnswered, 
     numberCorrect, setNumberCorrect, 
     currInput, setCurrInput, 
     answerCorrect, setAnswerCorrect,
     title, setTitle,
-    categories, setCategories};
+    categories, setCategories,
+    isLoading,
+  };
 
   if (question <= 0) {
     return <Instructions />;

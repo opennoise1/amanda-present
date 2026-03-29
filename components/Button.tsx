@@ -1,18 +1,40 @@
 import { SyntheticEvent } from "react";
 
-const Button = ({question, setQuestion, answered, setAnswered}: any) => {
+const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput}: any) => {
 
-  const nextQuestion = (e: SyntheticEvent) => {
+  const nextQuestion = () => {
     setQuestion(question + 1);
   }
 
-  const toggleAnswered = () => {
-    answered ? setAnswered(false) : setAnswered(true);
+  const checkAnswer = () => {
+    for (let i = 0; i < title.length; i++) {
+      if (currInput == title[i]) {
+        setAnswerCorrect(true);
+        setNumberCorrect(numberCorrect + 1);
+        console.log("hey");
+        break;
+      }
+
+      setAnswerCorrect(false);
+    }
+  }
+
+  const toggleAnswered = (e: SyntheticEvent) => {
+    if (answered) {
+      setAnswered(false)
+    } else {
+      setAnswered(true);
+    }
   }
 
   const nextQuestionAndToggleAnswered = (e: SyntheticEvent) => {
-    nextQuestion(e);
-    toggleAnswered();
+    nextQuestion();
+    toggleAnswered(e);
+  }
+
+  const checkAnswerAndToggleAnswered = (e: SyntheticEvent) => {
+    checkAnswer();
+    toggleAnswered(e);
   }
 
   if (question <= 0) {
@@ -34,7 +56,8 @@ const Button = ({question, setQuestion, answered, setAnswered}: any) => {
     if (!answered) {
       return (
         <>
-          <button onClick={toggleAnswered}>
+  
+          <button onClick={checkAnswerAndToggleAnswered}>
             <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-full w-full">
               <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-5.97-3.03a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47 2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" clip-rule="evenodd">
               </path>
@@ -45,6 +68,7 @@ const Button = ({question, setQuestion, answered, setAnswered}: any) => {
     } else {
         return (
           <>
+    
             <button onClick={nextQuestionAndToggleAnswered}>
               <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" 
               viewBox="0 0 24 24" aria-hidden="true" className="inline">
@@ -59,6 +83,7 @@ const Button = ({question, setQuestion, answered, setAnswered}: any) => {
   } else {
     return (
       <>
+
         <button onClick={nextQuestionAndToggleAnswered}>
           <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14 sm:h-20 sm:w-20">
             <path fill="currentColor" fill-rule="evenodd" d="M8.048 2.488a.75.75 0 0 1-.036 1.06l-4.286 4a.75.75 0 0 1-1.095-.076l-1.214-1.5a.75.75 0 0 1 1.166-.944l.708.875 3.697-3.451a.75.75 0 0 1 1.06.036M11.25 5a.75.75 0 0 1 .75-.75h10a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75M8.048 9.488a.75.75 0 0 1-.036 1.06l-4.286 4a.75.75 0 0 1-1.095-.076l-1.214-1.5a.75.75 0 1 1 1.166-.944l.708.875 3.697-3.451a.75.75 0 0 1 1.06.036M11.25 12a.75.75 0 0 1 .75-.75h10a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75m-3.202 4.488a.75.75 0 0 1-.036 1.06l-4.286 4a.75.75 0 0 1-1.095-.076l-1.214-1.5a.75.75 0 1 1 1.166-.944l.708.875 3.697-3.451a.75.75 0 0 1 1.06.036M11.25 19a.75.75 0 0 1 .75-.75h10a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75" clip-rule="evenodd">
