@@ -8,14 +8,41 @@ body {
     letter-spacing: .025em;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    --tw-border-opacity: 1;
+    border-color: rgb(6 95 70 / var(--tw-border-opacity, 1));
+}
+
+#instructions {
+    font-size: 1.5rem;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+}
+
 .fontSans {
     font-family: "Alegreya Sans", ui-sans-serif, system-ui, sans-serif;
     font-weight: 700;
 }
 
 #title {
+    font-size: 2.25rem;
     --tw-text-opacity: 1;
     color: rgb(251 191 36 / var(--tw-text-opacity, 1));
+    margin: 10px;
+}
+
+#subtitle {
+    font-size: 0.8rem;
+    --tw-text-opacity: 1;
+    color: rgb(203 203 166 / var(--tw-text-opacity, 1));
+    margin: 10px;
 }
 
 #fishingTitle {
@@ -23,19 +50,24 @@ body {
 }
 
 li {
-  display: inline;
+    display: inline;
+    font-size: 1.5rem;
 }
 
 svg {
-  padding: 5px;
+    padding: 5px;
+    width: 3rem;
+    height: 3rem;
+    fill: currentcolor;
 }
 
 button {
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: center;
     cursor: pointer;
-    height: 4rem;
+    height: 5rem;
     --tw-bg-opacity: 1;
     background-color: rgb(6 78 59 / var(--tw-bg-opacity, 1));
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
@@ -45,6 +77,7 @@ button {
     --tw-text-opacity: 1;
     color: rgb(209 250 229 / var(--tw-text-opacity, 1));
     text-decoration-line: none;
+    box-shadow: none;
 }
 
 .\[\&\>span\]\:separator > span:not(:last-child)::after {
@@ -59,12 +92,14 @@ button {
 }
 
 #guess {
+    width: 50%;
+    margin-bottom: 10px;
     border-radius: 0;
     --tw-bg-opacity: 1;
     background-color: rgb(0 34 24 / var(--tw-bg-opacity, 1));
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
     line-height: 1;
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
     --tw-text-opacity: 1;

@@ -62,11 +62,11 @@ const App: any = () => {
         title, setTitle, categories, setCategories, isLoading };
 
     return (
-        <>
+        <div id="app">
             <Header />
             <MainContent {...questionProps} />
             <Button {...questionProps}/>
-        </>
+        </div>
     )
 }
 

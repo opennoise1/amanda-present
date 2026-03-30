@@ -68,7 +68,6 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
     } else {
         return (
           <>
-    
             <button onClick={nextQuestionAndToggleAnswered}>
               <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" 
               viewBox="0 0 24 24" aria-hidden="true" className="inline">
