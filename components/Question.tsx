@@ -1,21 +1,21 @@
 import AnswerInput from "./AnswerInput";
 
-const Question = ({ question, setQuestion, currInput, setCurrInput, categories, isLoading }: any ) => {
+const Question = ({ question, categories, isLoading, title }: any ) => {
     
-    const props: any = { question, setQuestion, currInput, setCurrInput };
-
     if (isLoading) {
         return <p>Loading categories...</p>
     } else {
         return (
-            <>
+            <div id="questionDiv">
+                <div id="questionDirection" className="fontSans">GUESS THE ARTICLE FROM ITS CATEGORIES</div>
                 <ul>
                     {categories[question].map((category: string, index: number) => { 
-                        return <span><li key={'cat' + index} id={'cat' + index}>{category + " ✦ "}</li></span>
+                        // If one of the categories contains a good chunk of the answer, don't display it.
+                        if (category.includes(title[0].slice(0, 3))) { return; } 
+                        return <span><li key={'cat' + index} className='categories' id={'cat' + index}>{category}<span className="catSeparator"> ✦ </span></li></span>
                     })}
                 </ul>
-                <AnswerInput {...props} />
-            </>
+            </div>
         )
     }
 }

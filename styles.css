@@ -1,4 +1,12 @@
+*, :before, :after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
 body {
+    --tw-bg-opacity: 1;
     background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
     color: rgb(254 243 199 / var(--tw-text-opacity, 1));
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
@@ -6,6 +14,11 @@ body {
     font-weight: 400;
     font-style: normal;
     letter-spacing: .025em;
+    height: 100%;
+}
+
+#everything {
+    display: flex;
 }
 
 #app {
@@ -13,13 +26,47 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-style: solid;
+    border-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
     --tw-border-opacity: 1;
-    border-color: rgb(6 95 70 / var(--tw-border-opacity, 1));
+    margin-left: auto;
+    margin-right: auto;
+    border-color: rgb(6 78 59 / var(--tw-border-opacity, 1));
+    height: 100vh;
+}
+
+#instructContainer {
+    /* max-width: 640px; */
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 #instructions {
+
+    text-align: left;
     font-size: 1.5rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
+
+#instructionItem {
+    display: list-item;
+    padding: 0.25rem;
+    margin: 0.5rem;
+    line-height: 1.5rem;
+}
+
+#instructions ::marker {
+    color: #059669;
+}
+
+.instructionHighlight {
+    color: rgb(52 211 153 / var(--tw-text-opacity, 1));
+}
+
 
 #header {
     display: flex;
@@ -49,9 +96,22 @@ body {
     font-style: italic;
 }
 
-li {
+#questionDirection {
+    color: rgb(52 211 153 / var(--tw-text-opacity, 1));
+}
+
+.categories {
     display: inline;
     font-size: 1.5rem;
+}
+
+.catSeparator {
+    padding-left: .125rem;
+    padding-right: .125rem;
+    vertical-align: middle;
+    font-size: .5em;
+    --tw-text-opacity: 1;
+    color: rgb(251 191 36 / var(--tw-text-opacity, 1));
 }
 
 svg {
@@ -78,6 +138,7 @@ button {
     color: rgb(209 250 229 / var(--tw-text-opacity, 1));
     text-decoration-line: none;
     box-shadow: none;
+    appearance: none;
 }
 
 .\[\&\>span\]\:separator > span:not(:last-child)::after {
@@ -104,6 +165,23 @@ button {
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+#answerTitle {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: .5rem;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #34d399cc;
+    --tw-text-opacity: 1;
+    color: rgb(0 34 24 / var(--tw-text-opacity, 1));
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 0em;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
 }
 
 #guess::placeholder {

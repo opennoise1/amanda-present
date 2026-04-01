@@ -6,7 +6,7 @@ import wtf from 'wtf_wikipedia';
 
 const QuestionPages: { [key: number] : [number, string[]] } = {
     // Question number: [Wikipedia Page ID, [Title Options]]
-    1: [1485962, ["The Mask", "Mask"]],
+    1: [1485962, ["The Mask", "Mask,"]],
     2: [537416, ["Ace Ventura: When Nature Calls", "Ace Ventura 2", "Ace Ventura 2: When Nature Calls", "Ace Ventura When Nature Calls"]],
     3: [1042287, ["Campari"]],
     4: [27929, ["Scrabble"]],
@@ -17,6 +17,7 @@ const QuestionPages: { [key: number] : [number, string[]] } = {
     9: [4848143, ["New York Yankees", "NY Yankees", "N.Y. Yankees", "Yankees"]],
     10: [72908535, ["Rick Glassman"]],
     11: [398837, ["Darren Hayes", "Daren Hayes"]],
+    12: [148858, ["Kakigori"]],
 }
 
 const App: any = () => {
@@ -62,10 +63,14 @@ const App: any = () => {
         title, setTitle, categories, setCategories, isLoading };
 
     return (
-        <div id="app">
-            <Header />
-            <MainContent {...questionProps} />
-            <Button {...questionProps}/>
+        <div id='everything'>
+            <div className='columns'></div>
+            <div id="app">
+                <Header />
+                <MainContent {...questionProps} />
+                <Button {...questionProps}/>
+            </div>
+            <div className='columns'></div>
         </div>
     )
 }
