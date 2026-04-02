@@ -8,6 +8,9 @@
 body {
     --tw-bg-opacity: 1;
     background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
+    background-image: url(./assets/frog.png);
+    background-repeat: no-repeat;
+    background-position: top 10px right 25px;
     color: rgb(254 243 199 / var(--tw-text-opacity, 1));
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
     font-optical-sizing: auto;
@@ -38,13 +41,16 @@ body {
 }
 
 #instructContainer {
-    /* max-width: 640px; */
     margin-left: 20%;
     margin-right: 20%;
 }
 
 #instructions {
-
+    margin: 0;
+    border-style: dotted;
+    --tw-border-opacity: 1;
+    border-color: rgb(6 95 70 / var(--tw-border-opacity, 1));
+    border-top-width: 2px;
     text-align: left;
     font-size: 1.5rem;
     font-weight: 500;
@@ -52,11 +58,10 @@ body {
     padding-right: 1rem;
 }
 
-#instructionItem {
-    display: list-item;
+.instructionItem {
     padding: 0.25rem;
     margin: 0.5rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
 }
 
 #instructions ::marker {
@@ -79,7 +84,7 @@ body {
 }
 
 #title {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
     --tw-text-opacity: 1;
     color: rgb(251 191 36 / var(--tw-text-opacity, 1));
     margin: 10px;
@@ -87,6 +92,9 @@ body {
 
 #subtitle {
     font-size: 0.8rem;
+    padding-top: 8px;
+    text-align: left;
+    letter-spacing: 0;
     --tw-text-opacity: 1;
     color: rgb(203 203 166 / var(--tw-text-opacity, 1));
     margin: 10px;
@@ -94,15 +102,31 @@ body {
 
 #fishingTitle {
     font-style: italic;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+#questionDiv {
+    border-style: dotted;
+    --tw-border-opacity: 1;
+    border-color: rgb(6 95 70 / var(--tw-border-opacity, 1));
+    border-top-width: 2px;
+    max-width: 1200px;
 }
 
 #questionDirection {
+    margin-top: 1rem;
     color: rgb(52 211 153 / var(--tw-text-opacity, 1));
 }
 
 .categories {
     display: inline;
     font-size: 1.5rem;
+}
+
+#catContainer {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .catSeparator {
@@ -114,11 +138,28 @@ body {
     color: rgb(251 191 36 / var(--tw-text-opacity, 1));
 }
 
+#questionInterface {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(4 120 87 / var(--tw-border-opacity, 1));
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 34 24 / var(--tw-bg-opacity, 1));
+}
+
 svg {
     padding: 5px;
     width: 3rem;
     height: 3rem;
     fill: currentcolor;
+}
+
+#skipButton {
+    --tw-text-opacity: 1;
+    color: rgb(248 113 113 / var(--tw-text-opacity, 1));
 }
 
 button {
@@ -153,28 +194,29 @@ button {
 }
 
 #guess {
-    width: 50%;
-    margin-bottom: 10px;
+    appearance: none;
+    outline: none;
+    -webkit-appearance: none;
+    width: 100%;
     border-radius: 0;
     --tw-bg-opacity: 1;
     background-color: rgb(0 34 24 / var(--tw-bg-opacity, 1));
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 3rem;
+    font-size: 2.25rem;
     line-height: 1;
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-#answerTitle {
+.answerTitle {
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: .5rem;
     align-items: center;
     padding-left: 2rem;
     padding-right: 2rem;
-    background-color: #34d399cc;
     --tw-text-opacity: 1;
     color: rgb(0 34 24 / var(--tw-text-opacity, 1));
     font-size: 3rem;
@@ -182,6 +224,14 @@ button {
     letter-spacing: 0em;
     padding-top: .75rem;
     padding-bottom: .75rem;
+}
+
+#answerWrong {
+    background-color: #f87171e6;
+}
+
+#answerRight {
+    background-color: #34d399cc;
 }
 
 #guess::placeholder {

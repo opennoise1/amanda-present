@@ -1,7 +1,6 @@
-import { SyntheticEvent } from "react";
 import AnswerInput from "./AnswerInput";
 
-const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput}: any) => {
+const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput, setSkipped}: any) => {
 
  const props: any = { question, setQuestion, currInput, setCurrInput };
 
@@ -22,7 +21,9 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
     }
   }
 
-  const toggleAnswered = (e: SyntheticEvent) => {
+  const toggleAnswered = () => {
+    setSkipped(false);
+
     if (answered) {
       setAnswered(false)
     } else {
@@ -30,14 +31,20 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
     }
   }
 
-  const nextQuestionAndToggleAnswered = (e: SyntheticEvent) => {
+  const nextQuestionAndToggleAnswered = () => {
     nextQuestion();
-    toggleAnswered(e);
+    toggleAnswered();
   }
 
-  const checkAnswerAndToggleAnswered = (e: SyntheticEvent) => {
+  const checkAnswerAndToggleAnswered = () => {
     checkAnswer();
-    toggleAnswered(e);
+    toggleAnswered();
+  }
+
+  const skipQuestion = () => {
+    toggleAnswered();
+    setAnswerCorrect(false);
+    setSkipped(true);
   }
 
   if (question <= 0) {
@@ -58,12 +65,13 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
   } else if (question > 0 && question < 10) {
     if (!answered) {
       return (
-        <div id="questionInterface">
-          <button id="skipButton" onClick={toggleAnswered}></button>
-          <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-full w-full">
-            <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-8.97-3.53a.75.75 0 1 0-1.06 1.06L14.44 12l-2.47 2.47a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06zm-5.06 0a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 0 1-1.06-1.06L10.44 12 7.97 9.53a.75.75 0 0 1 0-1.06" clip-rule="evenodd">
-            </path>
-          </svg>
+        <form id="questionInterface">
+          <button id="skipButton" onClick={skipQuestion}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-full w-full">
+              <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-8.97-3.53a.75.75 0 1 0-1.06 1.06L14.44 12l-2.47 2.47a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06zm-5.06 0a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 0 1-1.06-1.06L10.44 12 7.97 9.53a.75.75 0 0 1 0-1.06" clip-rule="evenodd">
+              </path>
+            </svg>
+          </button>
           <AnswerInput {...props} />
           <button id="submitButton" onClick={checkAnswerAndToggleAnswered}>
             <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-full w-full">
@@ -71,7 +79,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
               </path>
             </svg>
           </button>
-        </div>
+        </form>
       )
     } else {
         return (

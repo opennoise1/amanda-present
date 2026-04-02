@@ -29,6 +29,7 @@ const App: any = () => {
     const [title, setTitle] = useState<string[]>([""]);
     const [categories, setCategories] = useState<string[][]>([[""]]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [skipped, setSkipped] = useState<boolean>(false);
 
     console.log(currInput);
     console.log(title[0])
@@ -60,7 +61,7 @@ const App: any = () => {
 
     const questionProps: any = { question, setQuestion, numberCorrect, setNumberCorrect, 
         answerCorrect, setAnswerCorrect, answered, setAnswered, currInput, setCurrInput, 
-        title, setTitle, categories, setCategories, isLoading };
+        title, setTitle, categories, setCategories, isLoading, skipped, setSkipped };
 
     return (
         <div id='everything'>

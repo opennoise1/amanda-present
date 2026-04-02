@@ -2,11 +2,11 @@ import Instructions from "./Instructions";
 import Result from "./Result";
 import FinalResults from "./FinalResults";
 import Question from "./Question";
-import { useEffect } from "react"
 
 const MainContent = ({question, setQuestion, answered, setAnswered, 
   numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
-  title, setTitle, currInput, setCurrInput, categories, setCategories, isLoading}: any) => {
+  title, setTitle, currInput, setCurrInput, categories, setCategories, 
+  isLoading, skipped, setSkipped}: any) => {
 
   const props: any = { question, setQuestion, 
     answered, setAnswered, 
@@ -16,6 +16,7 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
     title, setTitle,
     categories, setCategories,
     isLoading,
+    skipped, setSkipped,
   };
 
   if (question <= 0) {
