@@ -1,5 +1,3 @@
-import AnswerInput from "./AnswerInput";
-
 const Question = ({ question, categories, isLoading, title }: any ) => {
     
     if (isLoading) {

@@ -30,9 +30,7 @@ const App: any = () => {
     const [categories, setCategories] = useState<string[][]>([[""]]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [skipped, setSkipped] = useState<boolean>(false);
-
-    console.log(currInput);
-    console.log(title[0])
+    const [images, setImages] = useState<string[]>([""]);
 
     useEffect(() => {
         if (question > 0) { setTitle(QuestionPages[question][1]); }
@@ -43,13 +41,17 @@ const App: any = () => {
             try {
                 setIsLoading(true);
                 const allCats: string[][] = [[""]];
+                const allImageURLs: string[] = [""];
                 for (let i = 1; i <= Object.keys(QuestionPages).length; i++) {
                     const page: wtf.Document | null = await wtf.fetch(QuestionPages[i][0]);
                     if (page) { 
                         allCats.push(page.categories());
+                        allImageURLs.push(page.images()?.[0]?.thumbnail());
                     }
                 }
                 setCategories(allCats);
+                setImages(allImageURLs);
+                console.log(allImageURLs);
                 setIsLoading(false);
             } catch (error: unknown) {
                 console.error("Error fetching Wikipedia page");
@@ -61,7 +63,7 @@ const App: any = () => {
 
     const questionProps: any = { question, setQuestion, numberCorrect, setNumberCorrect, 
         answerCorrect, setAnswerCorrect, answered, setAnswered, currInput, setCurrInput, 
-        title, setTitle, categories, setCategories, isLoading, skipped, setSkipped };
+        title, setTitle, categories, setCategories, isLoading, images, skipped, setSkipped };
 
     return (
         <div id='everything'>
@@ -76,4 +78,4 @@ const App: any = () => {
     )
 }
 
-export { App };
+export { App, QuestionPages };

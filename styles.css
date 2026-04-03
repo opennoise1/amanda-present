@@ -40,6 +40,10 @@ body {
     height: 100vh;
 }
 
+#mainContent {
+    width: 80vw;
+}
+
 #instructContainer {
     margin-left: 20%;
     margin-right: 20%;
@@ -107,6 +111,9 @@ body {
 }
 
 #questionDiv {
+    text-align: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border-style: dotted;
     --tw-border-opacity: 1;
     border-color: rgb(6 95 70 / var(--tw-border-opacity, 1));
@@ -115,18 +122,20 @@ body {
 }
 
 #questionDirection {
+    font-size: 1.125rem;
+    letter-spacing: .1em;
     margin-top: 1rem;
     color: rgb(52 211 153 / var(--tw-text-opacity, 1));
 }
 
 .categories {
     display: inline;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    letter-spacing: .025em;
 }
 
 #catContainer {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-inline-start: 0;
 }
 
 .catSeparator {
