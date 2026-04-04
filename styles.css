@@ -224,6 +224,7 @@ button {
     grid-template-columns: auto 1fr;
     column-gap: .5rem;
     align-items: center;
+    text-align: left;
     padding-left: 2rem;
     padding-right: 2rem;
     --tw-text-opacity: 1;

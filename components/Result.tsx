@@ -1,4 +1,5 @@
-const Result = ({numberCorrect, answerCorrect, title, currInput, skipped, images, question}: any) => {
+const Result = ({numberCorrect, answerCorrect, title, currInput, skipped, images, question, intros}: any) => {
+    console.log(intros);
     if (answerCorrect) {
         return (
             <div>
@@ -7,6 +8,7 @@ const Result = ({numberCorrect, answerCorrect, title, currInput, skipped, images
                     <div id="answerTitle">{title[0]}</div>
                 </div>
                 <img src={images[question]}></img>
+                <p>{intros[question]}</p>
                 <div id="yourGuess">You guessed "{currInput}"</div>
                 <p className="fontSans">Score: {numberCorrect}</p>
             </div>
@@ -22,6 +24,7 @@ const Result = ({numberCorrect, answerCorrect, title, currInput, skipped, images
                         </svg>
                         <div id="answerTitle">{title[0]}</div>
                     </div>
+                    <p>{intros[question]}</p>
                     <img src={images[question]}></img>
                     <div id="yourGuess">You skipped</div>
                     <p className="fontSans">Score: {numberCorrect}</p>
@@ -34,6 +37,7 @@ const Result = ({numberCorrect, answerCorrect, title, currInput, skipped, images
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="inline" width="1em" height="1em"><path fill="currentColor" fillRule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10M8.97 8.97a.75.75 0 0 1 1.06 0L12 10.94l1.97-1.97a.75.75 0 0 1 1.06 1.06L13.06 12l1.97 1.97a.75.75 0 0 1-1.06 1.06L12 13.06l-1.97 1.97a.75.75 0 0 1-1.06-1.06L10.94 12l-1.97-1.97a.75.75 0 0 1 0-1.06" clipRule="evenodd"></path></svg>
                         <div id="answerTitle">{title[0]}</div>
                     </div>
+                    <p>{intros[question]}</p>
                     <img src={images[question]}></img>
                     <div id="yourGuess">You guessed "{currInput}"</div>
                     <p className="fontSans">Score: {numberCorrect}</p>

@@ -7,7 +7,7 @@ import { QuestionPages } from "../App";
 const MainContent = ({question, setQuestion, answered, setAnswered, 
   numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
   title, setTitle, currInput, setCurrInput, categories, setCategories, 
-  isLoading, skipped, setSkipped, images}: any) => {
+  isLoading, skipped, setSkipped, images, intros}: any) => {
 
   const props: any = { question, setQuestion, 
     answered, setAnswered, 
@@ -18,6 +18,7 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
     categories, setCategories,
     isLoading, images,
     skipped, setSkipped,
+    intros,
   };
 
   if (question <= 0) {

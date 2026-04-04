@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Header from './components/Header';
 import MainContent from './components/MainContent'
 import Button from './components/Button'
@@ -31,6 +31,7 @@ const App: any = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [skipped, setSkipped] = useState<boolean>(false);
     const [images, setImages] = useState<string[]>([""]);
+    const [intros, setIntros] = useState<string[]>([""]);
 
     useEffect(() => {
         if (question > 0) { setTitle(QuestionPages[question][1]); }
@@ -42,16 +43,18 @@ const App: any = () => {
                 setIsLoading(true);
                 const allCats: string[][] = [[""]];
                 const allImageURLs: string[] = [""];
+                const allIntros: string[] = [""];
                 for (let i = 1; i <= Object.keys(QuestionPages).length; i++) {
                     const page: wtf.Document | null = await wtf.fetch(QuestionPages[i][0]);
                     if (page) { 
                         allCats.push(page.categories());
                         allImageURLs.push(page.images()?.[0]?.thumbnail());
+                        allIntros.push(page.paragraphs()[0].text());
                     }
                 }
                 setCategories(allCats);
                 setImages(allImageURLs);
-                console.log(allImageURLs);
+                setIntros(allIntros);
                 setIsLoading(false);
             } catch (error: unknown) {
                 console.error("Error fetching Wikipedia page");
@@ -63,7 +66,7 @@ const App: any = () => {
 
     const questionProps: any = { question, setQuestion, numberCorrect, setNumberCorrect, 
         answerCorrect, setAnswerCorrect, answered, setAnswered, currInput, setCurrInput, 
-        title, setTitle, categories, setCategories, isLoading, images, skipped, setSkipped };
+        title, setTitle, categories, setCategories, isLoading, images, skipped, setSkipped, intros };
 
     return (
         <div id='everything'>
