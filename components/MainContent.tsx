@@ -7,7 +7,7 @@ import { QuestionPages } from "../App";
 const MainContent = ({question, setQuestion, answered, setAnswered, 
   numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
   title, setTitle, currInput, setCurrInput, categories, setCategories, 
-  isLoading, skipped, setSkipped, images, intros}: any) => {
+  isLoading, skipped, setSkipped, images, intros, url, questionSkips, results}: any) => {
 
   const props: any = { question, setQuestion, 
     answered, setAnswered, 
@@ -18,12 +18,12 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
     categories, setCategories,
     isLoading, images,
     skipped, setSkipped,
-    intros,
+    intros, url, questionSkips, results
   };
 
   if (question <= 0) {
     return <div id="mainContent"><Instructions /></div>
-  } else if (question >= 1 || question <= Object.keys(QuestionPages).length) {
+  } else if (question >= 1 || question <= 10) {
       return answered ? <div id="mainContent"><Result {...props}/></div> : <div id="mainContent"><Question {...props}/></div>
   } else {
     return <div id="mainContent"><FinalResults {...props}/></div>

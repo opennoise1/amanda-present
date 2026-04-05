@@ -1,47 +1,56 @@
 import AnswerInput from "./AnswerInput";
+import { useState } from "react";
 
-const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput, setSkipped}: any) => {
-
- const props: any = { question, setQuestion, currInput, setCurrInput };
+const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput, setSkipped, results, setResults, questionSkips, setQuestionSkips}: any) => {
+  
+  const props: any = { question, setQuestion, currInput, setCurrInput, results, setResults,
+     questionSkips, setQuestionSkips };
 
   const nextQuestion = () => {
     setQuestion(question + 1);
   }
 
   const checkAnswer = () => {
+    const newResults = results;
+
     for (let i = 0; i < title.length; i++) {
       if (currInput == title[i]) {
         setAnswerCorrect(true);
+        newResults.push(true);
+        setResults(newResults);
         setNumberCorrect(numberCorrect + 1);
-        break;
+        return;
       }
-
-      setAnswerCorrect(false);
     }
+    
+    newResults.push(false);
+    setResults(results);
+    setAnswerCorrect(false);
   }
 
-  const toggleAnswered = () => {
-    setSkipped(false);
-
+  const toggleAnswered = (bool: boolean) => {
     if (answered) {
       setAnswered(false)
     } else {
+      const newSkips = questionSkips;
+      newSkips.push(bool);
+      setQuestionSkips(newSkips);
       setAnswered(true);
     }
   }
 
   const nextQuestionAndToggleAnswered = () => {
     nextQuestion();
-    toggleAnswered();
+    toggleAnswered(false);
   }
 
   const checkAnswerAndToggleAnswered = () => {
     checkAnswer();
-    toggleAnswered();
+    toggleAnswered(false);
   }
 
   const skipQuestion = () => {
-    toggleAnswered();
+    toggleAnswered(true);
     setAnswerCorrect(false);
     setSkipped(true);
   }
@@ -64,7 +73,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
   } else if (question > 0 && question < 10) {
     if (!answered) {
       return (
-        <form id="questionInterface">
+        <div id="questionInterface">
           <button id="skipButton" onClick={skipQuestion}>
             <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="h-full w-full">
               <path fill="currentColor" fillRule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-8.97-3.53a.75.75 0 1 0-1.06 1.06L14.44 12l-2.47 2.47a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06zm-5.06 0a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 0 1-1.06-1.06L10.44 12 7.97 9.53a.75.75 0 0 1 0-1.06" clipRule="evenodd">
@@ -78,7 +87,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
               </path>
             </svg>
           </button>
-        </form>
+        </div>
       )
     } else {
         return (
