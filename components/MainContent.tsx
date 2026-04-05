@@ -23,7 +23,7 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
 
   if (question <= 0) {
     return <div id="mainContent"><Instructions /></div>
-  } else if (question >= 1 || question <= 10) {
+  } else if (question >= 1 && question <= 10) {
       return answered ? <div id="mainContent"><Result {...props}/></div> : <div id="mainContent"><Question {...props}/></div>
   } else {
     return <div id="mainContent"><FinalResults {...props}/></div>

@@ -24,7 +24,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
     }
     
     newResults.push(false);
-    setResults(results);
+    setResults(newResults);
     setAnswerCorrect(false);
   }
 
@@ -32,6 +32,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
     if (answered) {
       setAnswered(false)
     } else {
+      setSkipped(bool);
       const newSkips = questionSkips;
       newSkips.push(bool);
       setQuestionSkips(newSkips);
@@ -52,7 +53,10 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
   const skipQuestion = () => {
     toggleAnswered(true);
     setAnswerCorrect(false);
-    setSkipped(true);
+
+    const newResults = results;
+    newResults.push(false);
+    setResults(newResults);
   }
 
   if (question <= 0) {

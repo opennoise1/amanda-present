@@ -1,9 +1,12 @@
+import { useEffect } from "react";
+
 const FinalResults = ({numberCorrect, title, questionSkips, results}: any) => {
 
-    const generateFinalResults: any = () => {
+    const allResults: any = [];
+
+    useEffect(() => {
 
         let resultsIcon; 
-        const allResults = [];
 
         for (let i = 1; i < title.length; i++) {
             if (results[i]) {
@@ -27,13 +30,14 @@ const FinalResults = ({numberCorrect, title, questionSkips, results}: any) => {
             )
         }
 
-        return allResults;
-    }
+    }, []);
 
 
     return (
         <div>
-            <div>{generateFinalResults()}</div>
+            <div>{allResults.map((result: any, index: number) => {
+                return <div key={result + index} id={result + index}>{result}</div>
+            })}</div>
             <div>Number correct: {numberCorrect}</div>
         </div>
     )

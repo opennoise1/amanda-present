@@ -6,7 +6,7 @@ import wtf from 'wtf_wikipedia';
 
 const QuestionPages: { [key: number] : [number, string[]] } = {
     // Question number: [Wikipedia Page ID, [Title Options]]
-    1: [1485962, ["The Mask", "Mask,"]],
+    1: [1485962, ["The Mask", "Mask",]],
     2: [537416, ["Ace Ventura: When Nature Calls", "Ace Ventura 2", "Ace Ventura 2: When Nature Calls", "Ace Ventura When Nature Calls"]],
     3: [1042287, ["Campari"]],
     4: [27929, ["Scrabble"]],
@@ -37,7 +37,11 @@ const App: any = () => {
     const [questionSkips, setQuestionSkips] = useState<boolean[]>([]);
 
     useEffect(() => {
-        if (question > 0 && question <= 10) { setTitle(QuestionPages[question][1]); }
+        if (question > 0 && question <= 10) { 
+            console.log("Question: " + question);
+            console.log("Title: " + QuestionPages[question][1]);
+            setTitle(QuestionPages[question][1]); 
+        }
     }, [question])
 
     useEffect(() => {   
