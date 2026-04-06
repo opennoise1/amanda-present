@@ -38,8 +38,6 @@ const App: any = () => {
 
     useEffect(() => {
         if (question > 0 && question <= 10) { 
-            console.log("Question: " + question);
-            console.log("Title: " + QuestionPages[question][1]);
             setTitle(QuestionPages[question][1]); 
         }
     }, [question])
@@ -85,7 +83,7 @@ const App: any = () => {
             <div id="app">
                 <Header />
                 <MainContent {...questionProps} />
-                <Button {...questionProps}/>
+                {question <= 10 ? <Button {...questionProps}/> : <></>}
             </div>
             <div className='columns'></div>
         </div>

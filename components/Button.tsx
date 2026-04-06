@@ -74,7 +74,7 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
       </button>
     </>
     )
-  } else if (question > 0 && question < 10) {
+  } else if (question > 0 && question <=10) {
     if (!answered) {
       return (
         <div id="questionInterface">
