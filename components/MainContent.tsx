@@ -2,12 +2,12 @@ import Instructions from "./Instructions";
 import Result from "./Result";
 import FinalResults from "./FinalResults";
 import Question from "./Question";
-import { QuestionPages } from "../App";
 
 const MainContent = ({question, setQuestion, answered, setAnswered, 
   numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
   title, setTitle, currInput, setCurrInput, categories, setCategories, 
-  isLoading, skipped, setSkipped, images, intros, url, questionSkips, results}: any) => {
+  isLoading, skipped, setSkipped, images, intros, url, 
+  questionSkips, todaysQuestions, results}: any) => {
 
   const props: any = { question, setQuestion, 
     answered, setAnswered, 
@@ -18,7 +18,8 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
     categories, setCategories,
     isLoading, images,
     skipped, setSkipped,
-    intros, url, questionSkips, results
+    intros, url, questionSkips,
+    todaysQuestions, results
   };
 
   if (question <= 0) {

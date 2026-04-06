@@ -16,11 +16,23 @@ const QuestionPages: { [key: number] : [number, string[]] } = {
     8: [47150958, ["Imperator Furiosa", "Furiosa"]],
     9: [4848143, ["New York Yankees", "NY Yankees", "N.Y. Yankees", "Yankees"]],
     10: [72908535, ["Rick Glassman"]],
-    // 11: [398837, ["Darren Hayes", "Daren Hayes"]],
-    // 12: [148858, ["Kakigori"]],
+}
+
+const QuestionPagesDayTwo: { [key: number] : [number, string[]] } = {
+    1: [398837, ["Darren Hayes", "Daren Hayes"]],
+    2: [148858, ["Kakigori"]],
+    3: [13075446, ["HEALTH"]],
+    4: [82754308, ["Rachel Kaly"]],
+    5: [55624408, ["Always Ascending"]],
+
+}
+
+const QuestionPagesDayThree: any = {
+
 }
 
 const App: any = () => {
+    const [todaysQuestions, setTodaysQuestions] = useState<any>({});
     const [question, setQuestion] = useState<number>(0);
     const [answerCorrect, setAnswerCorrect] = useState<boolean>(false);
     const [numberCorrect, setNumberCorrect] = useState<number>(0);
@@ -36,13 +48,29 @@ const App: any = () => {
     const [results, setResults] = useState<boolean[]>([]);
     const [questionSkips, setQuestionSkips] = useState<boolean[]>([]);
 
+    const determineDate = () => {
+        const today: Date = new Date();
+        const day: string = today.getDate().toString();
+        const month: string = today.getMonth.toString() + 1; // Account for index
+        const dayMonth = day + month;
+
+        switch(dayMonth) {
+            case "48": setTodaysQuestions(QuestionPages); break;
+            case "49": setTodaysQuestions(QuestionPagesDayTwo); break;
+            case "410": setTodaysQuestions(QuestionPagesDayThree); break;
+            default: setTodaysQuestions(QuestionPages); break;
+        }
+    }
+
     useEffect(() => {
         if (question > 0 && question <= 10) { 
-            setTitle(QuestionPages[question][1]); 
+            setTitle(todaysQuestions[question][1]); 
         }
     }, [question])
 
-    useEffect(() => {   
+    useEffect(() => {
+        determineDate();
+
         const fetchWikiPage = async (): Promise<void> => {
             try {
                 setIsLoading(true);
@@ -75,7 +103,7 @@ const App: any = () => {
     const questionProps: any = { question, setQuestion, numberCorrect, setNumberCorrect, 
         answerCorrect, setAnswerCorrect, answered, setAnswered, currInput, setCurrInput, 
         title, setTitle, categories, setCategories, isLoading, images, skipped, setSkipped, 
-        intros, url, results, setResults, questionSkips, setQuestionSkips };
+        intros, url, results, setResults, questionSkips, setQuestionSkips, todaysQuestions };
 
     return (
         <div id='everything'>
@@ -90,4 +118,4 @@ const App: any = () => {
     )
 }
 
-export { App, QuestionPages };
+export default App;
