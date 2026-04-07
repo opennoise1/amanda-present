@@ -1,4 +1,5 @@
 import AnswerInput from "./AnswerInput";
+import levenshtein from 'damerau-levenshtein';
 
 const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput, setSkipped, results, setResults, questionSkips, setQuestionSkips}: any) => {
   
@@ -11,17 +12,21 @@ const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerC
 
   const checkAnswer = () => {
     const newResults = results;
+    let correct: boolean = false;
 
     for (let i = 0; i < title.length; i++) {
-      if (currInput.toLowerCase() == title[i].toLowerCase()) {
-        setAnswerCorrect(true);
-        newResults.push(true);
-        setResults(newResults);
-        setNumberCorrect(numberCorrect + 1);
-        return;
-      }
+      const currLev = levenshtein(currInput.toLowerCase(), title[i].toLowerCase());
+      if (currLev.steps <= 3) { correct = true; break; }
     }
-    
+
+    if (correct) {
+      setAnswerCorrect(true);
+      newResults.push(true);
+      setResults(newResults);
+      setNumberCorrect(numberCorrect + 1);
+      return;
+    }
+
     newResults.push(false);
     setResults(newResults);
     setAnswerCorrect(false);
