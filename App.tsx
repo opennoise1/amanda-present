@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import MainContent from './components/MainContent'
 import Button from './components/Button'
@@ -10,7 +10,7 @@ const QuestionPages: { [key: number] : [number, string[]] } = {
     2: [537416, ["Ace Ventura: When Nature Calls", "Ace Ventura 2", "Ace Ventura 2: When Nature Calls", "Ace Ventura When Nature Calls"]],
     3: [1042287, ["Campari"]],
     4: [27929, ["Scrabble"]],
-    5: [83688, ["Beyoncé"]],
+    5: [83688, ["Beyoncé", "Beyonce Knowles"]],
     6: [22847481, ["Seminole Hard Rock Hotel & Casino Hollywood", "The Guitar Hotel", "Guitar Hotel", "Seminole Hard Rock Hotel"]],
     7: [649382, ["Pareidolia"]],
     8: [47150958, ["Imperator Furiosa", "Furiosa"]],
@@ -44,8 +44,22 @@ const QuestionPagesDayThree: { [key: number] : [number, string[]] } = {
     10: [699466, ["Habbo", "Habbo Hotel"]]
 }
 
+const getTodaysQuestions = () => {
+    const today: Date = new Date();
+    const month: string = (today.getMonth() + 1).toString(); // Account for index
+    const day: string = today.getDate().toString();
+    const monthDay = month + day;
+
+    switch(monthDay) {
+        case "48": return QuestionPages;
+        case "49": return QuestionPagesDayTwo;
+        case "410": return QuestionPagesDayThree;
+        default: return QuestionPages;
+    }
+}
+
 const App: any = () => {
-    const [todaysQuestions, setTodaysQuestions] = useState<any>({});
+    const [todaysQuestions, setTodaysQuestions] = useState<any>(getTodaysQuestions());
     const [question, setQuestion] = useState<number>(0);
     const [answerCorrect, setAnswerCorrect] = useState<boolean>(false);
     const [numberCorrect, setNumberCorrect] = useState<number>(0);
@@ -61,19 +75,6 @@ const App: any = () => {
     const [results, setResults] = useState<boolean[]>([]);
     const [questionSkips, setQuestionSkips] = useState<boolean[]>([]);
 
-    const determineDate = () => {
-        const today: Date = new Date();
-        const month: string = (today.getMonth() + 1).toString(); // Account for index
-        const day: string = today.getDate().toString();
-        const monthDay = month + day;
-
-        switch(monthDay) {
-            case "48": setTodaysQuestions(QuestionPages); break;
-            case "49": setTodaysQuestions(QuestionPagesDayTwo); break;
-            case "410": setTodaysQuestions(QuestionPagesDayThree); break;
-            default: setTodaysQuestions(QuestionPages); break;
-        }
-    }
 
     useEffect(() => {
         if (question > 0 && question <= 10) { 
@@ -82,8 +83,6 @@ const App: any = () => {
     }, [question])
 
     useEffect(() => {
-        determineDate();
-
         const fetchWikiPage = async (): Promise<void> => {
             try {
                 setIsLoading(true);
@@ -91,8 +90,8 @@ const App: any = () => {
                 const allImageURLs: string[] = [""];
                 const allIntros: string[] = [""];
                 const allURLs: any = [""];
-                for (let i = 1; i <= Object.keys(QuestionPages).length; i++) {
-                    const page: wtf.Document | null = await wtf.fetch(QuestionPages[i][0]);
+                for (let i = 1; i <= Object.keys(todaysQuestions).length; i++) {
+                    const page: any = await wtf.fetch(todaysQuestions[i][0]);
                     if (page) { 
                         allCats.push(page.categories());
                         allImageURLs.push(page.images()?.[0]?.thumbnail());
