@@ -10,29 +10,38 @@ const QuestionPages: { [key: number] : [number, string[]] } = {
     2: [537416, ["Ace Ventura: When Nature Calls", "Ace Ventura 2", "Ace Ventura 2: When Nature Calls", "Ace Ventura When Nature Calls"]],
     3: [1042287, ["Campari"]],
     4: [27929, ["Scrabble"]],
-    5: [83688, ["Beyoncé", "Beyonce"]],
+    5: [83688, ["Beyoncé"]],
     6: [22847481, ["Seminole Hard Rock Hotel & Casino Hollywood", "The Guitar Hotel", "Guitar Hotel", "Seminole Hard Rock Hotel"]],
-    7: [649382, ["Pareidolia", "Paradolia", "Paredolia", "Paridoliea"]],
+    7: [649382, ["Pareidolia"]],
     8: [47150958, ["Imperator Furiosa", "Furiosa"]],
-    9: [4848143, ["New York Yankees", "NY Yankees", "N.Y. Yankees", "Yankees"]],
-    10: [72908535, ["Rick Glassman"]],
+    9: [4848143, ["New York Yankees", "NY Yankees", "Yankees"]],
+    10: [13075446, ["HEALTH"]],
 }
 
 const QuestionPagesDayTwo: { [key: number] : [number, string[]] } = {
-    1: [398837, ["Darren Hayes", "Daren Hayes", "Darren Heyes", "Daren Heyes"]],
+    1: [398837, ["Darren Hayes", "Hayes"]],
     2: [148858, ["Kakigori"]],
-    3: [13075446, ["HEALTH"]],
-    4: [82754308, ["Rachel Kaly"]],
+    3: [72908535, ["Rick Glassman", "Glassnman"]],
+    4: [82754308, ["Rachel Kaly", "Kaly"]],
     5: [55624408, ["Always Ascending"]],
     6: [52371022, ["Weyes Blood"]],
     7: [42250917, ["Tauba Auerbach", "Auerbach"]],
     8: [20448, ["Museum of Jurassic Technology", "The Museum of Jurassic Technology"]],
-    9: [621798, ["Jah Wobble"]],
-    10: [180432, ["Hollywood Forever Cemetery", "Hollywood Forever", "Hollywood Forever Cemetary"]],
+    9: [3383634, ["Dreyfoos School of the Arts", "Dreyfoos", "Dreyfoos School"]],
+    10: [180432, ["Hollywood Forever Cemetery", "Hollywood Forever"]],
 }
 
 const QuestionPagesDayThree: { [key: number] : [number, string[]] } = {
     1: [17486994, ["The Mole", "Mole"]],
+    2: [66445438, ["Brad Mondo", "Mondo"]],
+    3: [4911224, ["CityPlace", "The Square", "Rosemary Square"]],
+    4: [2139688, ["Dobermann", "Doberman Pinscher"]],
+    5: [1120742, ["Artichoke"]],
+    6: [5865828, ["Pieces of the People We Love", "POTPWL"]],
+    7: [48549205, ["The Great Pottery Throw Down", "Great Pottery Throw Down"]],
+    8: [347781, ["Parsons School of Design", "The Parsons School of Design", "Parsons"]],
+    9: [621798, ["Jah Wobble"]],
+    10: [699466, ["Habbo", "Habbo Hotel"]]
 }
 
 const App: any = () => {
@@ -54,11 +63,11 @@ const App: any = () => {
 
     const determineDate = () => {
         const today: Date = new Date();
+        const month: string = (today.getMonth() + 1).toString(); // Account for index
         const day: string = today.getDate().toString();
-        const month: string = today.getMonth.toString() + 1; // Account for index
-        const dayMonth = day + month;
+        const monthDay = month + day;
 
-        switch(dayMonth) {
+        switch(monthDay) {
             case "48": setTodaysQuestions(QuestionPages); break;
             case "49": setTodaysQuestions(QuestionPagesDayTwo); break;
             case "410": setTodaysQuestions(QuestionPagesDayThree); break;
