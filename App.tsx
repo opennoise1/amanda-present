@@ -19,16 +19,20 @@ const QuestionPages: { [key: number] : [number, string[]] } = {
 }
 
 const QuestionPagesDayTwo: { [key: number] : [number, string[]] } = {
-    1: [398837, ["Darren Hayes", "Daren Hayes"]],
+    1: [398837, ["Darren Hayes", "Daren Hayes", "Darren Heyes", "Daren Heyes"]],
     2: [148858, ["Kakigori"]],
     3: [13075446, ["HEALTH"]],
     4: [82754308, ["Rachel Kaly"]],
     5: [55624408, ["Always Ascending"]],
-
+    6: [52371022, ["Weyes Blood"]],
+    7: [42250917, ["Tauba Auerbach", "Auerbach"]],
+    8: [20448, ["Museum of Jurassic Technology", "The Museum of Jurassic Technology"]],
+    9: [621798, ["Jah Wobble"]],
+    10: [180432, ["Hollywood Forever Cemetery", "Hollywood Forever", "Hollywood Forever Cemetary"]],
 }
 
-const QuestionPagesDayThree: any = {
-
+const QuestionPagesDayThree: { [key: number] : [number, string[]] } = {
+    1: [17486994, ["The Mole", "Mole"]],
 }
 
 const App: any = () => {

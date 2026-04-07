@@ -1,5 +1,4 @@
 import AnswerInput from "./AnswerInput";
-import { useState } from "react";
 
 const Button = ({question, setQuestion, answered, setAnswered, title, setAnswerCorrect, setNumberCorrect, numberCorrect, currInput, setCurrInput, setSkipped, results, setResults, questionSkips, setQuestionSkips}: any) => {
   
