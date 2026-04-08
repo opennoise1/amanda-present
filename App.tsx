@@ -27,7 +27,7 @@ const QuestionPagesDayTwo: { [key: number] : [number, string[]] } = {
     6: [52371022, ["Weyes Blood"]],
     7: [42250917, ["Tauba Auerbach", "Auerbach"]],
     8: [20448, ["Museum of Jurassic Technology", "The Museum of Jurassic Technology"]],
-    9: [3383634, ["Dreyfoos School of the Arts", "Dreyfoos", "Dreyfoos School"]],
+    9: [1281638, ["Ways of Seeing"]],
     10: [180432, ["Hollywood Forever Cemetery", "Hollywood Forever"]],
 }
 

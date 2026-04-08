@@ -5,6 +5,10 @@
     border-color: #e5e7eb;
 }
 
+@media screen and (max-width: 500px) {
+    #instructContainer { margin: 0;}
+}
+
 body {
     --tw-bg-opacity: 1;
     background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
