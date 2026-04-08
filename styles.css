@@ -5,10 +5,6 @@
     border-color: #e5e7eb;
 }
 
-@media screen and (max-width: 500px) {
-    #instructContainer { margin: 0;}
-}
-
 body {
     --tw-bg-opacity: 1;
     background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
@@ -387,4 +383,37 @@ button {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+
+@media screen and (max-width: 500px) {
+    .columns { visibility: hidden;}
+    #app {border: none}
+
+    #title {font-size: 1.5rem;}
+    #fishingTitle {font-size: 2.25rem;}
+    #subtitle {font-size: 0.6rem; padding-top: 4px}
+
+    #mainContent {width: 100%;}
+    #questionDiv {padding: 10px;}
+    #questionDirection {font-size: 0.9rem;}
+
+    #instructions {font-size: 1rem;}
+    .instructionItem {line-height: 1.25rem;}
+    #instructContainer { margin: 0;}
+
+    .categories {font-size: 1rem;}
+    #questionInterface {height: auto; position: fixed; bottom: 0; }
+    #guess {font-size: 1.5rem;}
+    
+    .answerTitle {width: 100%; height: auto; padding: 0; font-size: 1.75rem; border-style: solid; border-width: 1px; border-color: #03593e;}
+    #articleInfo { margin: 0; }
+    #image { height: auto; width: 125px; }
+    #imageAndLinks {padding: 1rem;}
+    #intro {padding: 0; font-size: 0.8rem;}
+    #link {font-size: 0.7rem;}
+    #youGuessed {font-size: 0.7rem;}
+    #currGuess {font-size: 0.7rem; margin-top: 100px;}
+    #score {margin-bottom: 5px; }
+    
+    #nextButton {height: auto; position: fixed; bottom: 0; }
 }

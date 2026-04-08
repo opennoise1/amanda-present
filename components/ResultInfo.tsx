@@ -43,9 +43,9 @@ const ResultInfo = ({images, question, currInput, numberCorrect, intros, skipped
                 </a>
               </div>
             </div>
-          <div><span id="youGuessed">You guessed</span> "{currInput}"</div>
+          <div id="currGuess"><span id="youGuessed">You guessed</span> "{currInput}"</div>
         </div>
-        <p className="fontSans">Score · {numberCorrect}</p>
+        <div id="score" className="fontSans">Score · {numberCorrect}</div>
       </div>
     )
   }
