@@ -20,7 +20,10 @@ const ResultInfo = ({images, question, currInput, numberCorrect, intros, skipped
             </div>
           </div>
         </div>
-        <p className="fontSans">Score · {numberCorrect}</p>
+        <div id="scoreboard">
+          <div id="questionNumber" className="fontSans">Q{question} · 10</div>
+          <div id="score" className="fontSans">Score · {numberCorrect}</div>
+        </div>
       </div>
     )
   } else {
@@ -45,7 +48,10 @@ const ResultInfo = ({images, question, currInput, numberCorrect, intros, skipped
             </div>
           <div id="currGuess"><span id="youGuessed">You guessed</span> "{currInput}"</div>
         </div>
-        <div id="score" className="fontSans">Score · {numberCorrect}</div>
+        <div id="scoreboard">
+          <div id="questionNumber" className="fontSans">Q{question} · 10</div>
+          <div id="score" className="fontSans">Score · {numberCorrect}</div>
+        </div>
       </div>
     )
   }

@@ -318,6 +318,12 @@ button {
     color: white;
 }
 
+#scoreboard {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1px;
+}
+
 #answerWrong {
     background-color: #f87171e6;
 }

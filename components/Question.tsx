@@ -1,4 +1,4 @@
-const Question = ({ question, todaysQuestions, categories, isLoading, title }: any ) => {
+const Question = ({ question, numberCorrect, categories, isLoading }: any ) => {
 
     const filterCategories = () => {
         switch (question) {
@@ -35,6 +35,10 @@ const Question = ({ question, todaysQuestions, categories, isLoading, title }: a
                         })
                     }
                 </ul>
+                <div id="scoreboard">
+                    <div id="questionNumber" className="fontSans">Q{question} · 10</div>
+                    <div id="score" className="fontSans">Score · {numberCorrect}</div>
+                </div>
             </div>
         )
     }
