@@ -2,12 +2,14 @@ import Instructions from "./Instructions";
 import Result from "./Result";
 import FinalResults from "./FinalResults";
 import Question from "./Question";
+import { useState } from "react";
+import Archive from "./Archive";
 
 const MainContent = ({question, setQuestion, answered, setAnswered, 
   numberCorrect, setNumberCorrect, answerCorrect, setAnswerCorrect,
   title, setTitle, currInput, setCurrInput, categories, setCategories, 
-  isLoading, skipped, setSkipped, images, intros, url, 
-  questionSkips, todaysQuestions, results}: any) => {
+  isLoading, skipped, setSkipped, images, intros, url, archive, setArchive,
+  questionSkips, setQuestionSkips, results, setResults, todaysQuestions, setTodaysQuestions,}: any) => {
 
   const props: any = { question, setQuestion, 
     answered, setAnswered, 
@@ -18,16 +20,21 @@ const MainContent = ({question, setQuestion, answered, setAnswered,
     categories, setCategories,
     isLoading, images,
     skipped, setSkipped,
-    intros, url, questionSkips,
-    todaysQuestions, results
+    intros, url, questionSkips, setQuestionSkips,
+    todaysQuestions, setTodaysQuestions,
+    results, setResults, archive, setArchive, 
   };
 
-  if (question <= 0) {
-    return <div id="mainContent"><Instructions /></div>
-  } else if (question >= 1 && question <= 10) {
-      return answered ? <div id="mainContent"><Result {...props}/></div> : <div id="mainContent"><Question {...props}/></div>
+  if (archive) {
+    return <Archive {...props}/>
   } else {
-    return <div id="mainContent"><FinalResults {...props}/></div>
+      if (question <= 0) {
+        return <div id="mainContent"><Instructions /></div>
+      } else if (question >= 1 && question <= 10) {
+          return answered ? <div id="mainContent"><Result {...props}/></div> : <div id="mainContent"><Question {...props}/></div>
+      } else {
+        return <div id="mainContent"><FinalResults {...props}/></div>
+      }
   }
 }
 

@@ -82,6 +82,10 @@ body {
     align-items: center;
 }
 
+#titles {
+    display: flex;
+}
+
 .fontSans {
     font-family: "Alegreya Sans", ui-sans-serif, system-ui, sans-serif;
     font-weight: 700;
