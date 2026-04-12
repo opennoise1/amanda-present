@@ -87,7 +87,7 @@ const App: any = () => {
             <div id="app">
                 <Header {...questionProps} />
                 <MainContent {...questionProps} />
-                {question <= 10 ? <Button {...questionProps}/> : <></>}
+                {(question <= 10 && !archive) ? <Button {...questionProps}/> : <></>}
             </div>
             <div className='columns'></div>
         </div>

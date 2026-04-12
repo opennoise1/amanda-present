@@ -350,6 +350,7 @@ button {
 #allFinalResults {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 #finalScore {
@@ -365,8 +366,6 @@ button {
 }
 
 .finalResults {
-    display: flex;
-    align-items: center;
     font-size: 1.5rem;
     text-underline-offset: 4px;
 }
@@ -380,6 +379,7 @@ button {
 }
 
 .correctFinal {
+    padding-bottom: 1rem;
     --tw-text-opacity: 1;
     color: rgb(52 211 153 / var(--tw-text-opacity, 1));
     text-decoration: underline;
@@ -388,11 +388,39 @@ button {
 }
 
 .wrongFinal {
+    padding-bottom: 1rem;
     --tw-text-opacity: 1;
     color: rgb(248 113 113 / var(--tw-text-opacity, 1));
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+
+#archiveButton {
+    display: flex;
+    flex-direction: column;
+}
+
+#calendar {
+    width: 2rem;
+    height: 2rem;
+}
+
+#archiveButtonText {
+    font-size: 1rem;
+}
+
+#archive {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.archiveDays {
+    margin: 1em;
+    margin-top: 1em;
+    font-size: 1.25rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -403,7 +431,8 @@ button {
         background-position: top 20px left 100px;
     }
 
-    #title {font-size: 1.5rem;}
+    #titles { flex-direction: column};
+    #title {font-size: 1.5rem; padding: 0;}
     #fishingTitle {font-size: 2.25rem;}
     #subtitle {font-size: 0.6rem; padding-top: 4px}
 

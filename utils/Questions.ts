@@ -40,10 +40,28 @@ const QuestionPagesDayThree: { [key: number] : [number, string[]] } = {
 
 const QuestionPagesDayFour: { [key: number] : [number, string[]] } = {
     1: [3383634, ["Dreyfoos School of the Arts", "Alexander W. Dreyfoos School of the Arts", "Dreyfoos", "DSOA", "D.S.O.A."]],
+    2: [10565411, ["Foals"]],
+    3: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    4: [2859384, ["Flat white"]],
+    5: [1521644, ["Lumines: Puzzle Fusion", "Lumines"]],
+    6: [44187499, ["90 Day Fiancé", "Ninety Day Fiancé"]],
+    7: [1794603, ["Tim Heidecker", "Heidecker", "Timothy Heidecker", "Timothy Richard Heidecker"]],
+    8: [5947616, ["Astoria Park"]],
+    9: [6901706, ["YoungArts", "National YoungArts Foundation", "National Foundation for Advancement in the Arts", "NFAA", "N.F.A.A."]],
+    10: [544694, ["Publix", "Publix Super Markets, Inc.", "Publix Super Markets"]],
 }
 
 const QuestionPagesDayFive: { [key: number] : [number, string[]] } = {
-
+    1: [3383634, ["Dreyfoos School of the Arts", "Alexander W. Dreyfoos School of the Arts", "Dreyfoos", "DSOA", "D.S.O.A."]],
+    2: [10565411, ["Foals"]],
+    3: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    4: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    5: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    6: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    7: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    8: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    9: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+    10: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
 }
 
 const allQuestions = [QuestionPages, QuestionPagesDayTwo, QuestionPagesDayThree,

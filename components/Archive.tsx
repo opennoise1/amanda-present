@@ -16,7 +16,7 @@ const Archive = ({archive, setArchive, setQuestion, setQuestionSkips, setResults
     <div id="archive">
       {allQuestions.map((questions: any, index: number) => {
         return (
-          <button onClick={(e: SyntheticEvent) => setDay(index, e)} key={"day" + (index + 1)} id={"day" + (index + 1)}>
+          <button onClick={(e: SyntheticEvent) => setDay(index, e)} key={"day" + (index + 1)} id={"day" + (index + 1)} className="archiveDays">
             <div>Day {index + 1}</div>
           </button>
         )

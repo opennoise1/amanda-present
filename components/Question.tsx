@@ -3,12 +3,12 @@ const Question = ({ question, numberCorrect, categories, isLoading }: any ) => {
     const filterCategories = () => {
         switch (question) {
             case 1: return ["The Mask (franchise)", "Darren Hayes", "The Mole (American TV series)"];
-            case 2: return ["Ace Ventura"];
-            case 3: return ["Campari brands"];
+            case 2: return ["Ace Ventura", "Foals (band)"];
+            case 3: return ["Campari brands", "Bloomberg L.P."];
             case 4: return ["Scrabble"];
-            case 5: return ["Beyoncé", "Knowles–Carter family"];
+            case 5: return ["Beyoncé", "Knowles–Carter family", "Lumines", "Video games scored by Jake Kaufman"];
             case 6: return ["Hard Rock Cafe", "Weyes Blood"];
-            case 7: return ["Pareidolia"];
+            case 7: return ["Pareidolia", "Tim & Eric"];
             case 8: return ["Parsons School of Design", "The New School"];
             case 9: return ["New York Yankees", "Yankee Global Enterprises"];
             case 10: return [];
