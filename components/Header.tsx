@@ -7,8 +7,8 @@ const Header = ({ setArchive, archive }: any) => {
     return (
         <div id='header'>
             <div id="titles">
-                <div id='title'><span id="amandaTitle" className="fontSans">AMANDA</span><span id="fishingTitle">fishing</span></div>
-                <div id='subtitle' className="fontSans">THE AMANDA-THEMED WIKIPEDIA <br /> BIRTHDAY GUESSING GAME</div>
+                <div id='title'><span id="amandaTitle" className="fontSans">ERIN</span><span id="fishingTitle">fishing</span></div>
+                <div id='subtitle' className="fontSans">THE ERIN-THEMED WIKIPEDIA <br /> BIRTHDAY GUESSING GAME</div>
             </div>
             <button id="archiveButton" onClick={toggleArchive}>
                 <svg xmlns="http://www.w3.org/2000/svg" id="calendar" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" className="inline svelte-13pf89s">

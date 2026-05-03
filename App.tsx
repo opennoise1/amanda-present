@@ -16,8 +16,8 @@ const getTodaysQuestions = () => {
         case "49": return allQuestions[1];
         case "410": return allQuestions[2];
         case "411": return allQuestions[3];
-        case "412": return allQuestions[4];
-        default: return allQuestions[0];
+        case "54": return allQuestions[4];
+        default: return allQuestions[4];
     }
 }
 

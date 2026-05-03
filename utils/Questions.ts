@@ -51,21 +51,21 @@ const QuestionPagesDayFour: { [key: number] : [number, string[]] } = {
     10: [544694, ["Publix", "Publix Super Markets, Inc.", "Publix Super Markets"]],
 }
 
-const QuestionPagesDayFive: { [key: number] : [number, string[]] } = {
-    1: [3383634, ["Dreyfoos School of the Arts", "Alexander W. Dreyfoos School of the Arts", "Dreyfoos", "DSOA", "D.S.O.A."]],
-    2: [10565411, ["Foals"]],
-    3: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    4: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    5: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    6: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    7: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    8: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    9: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
-    10: [432006, ["Bloomberg L.P.", "Bloomberg", "Bloomberg LP"]],
+const QuestionPagesErin: { [key: number] : [number, string[]] } = {
+    1: [101631, ["Yukio Mishima", "Mishima"]],
+    2: [343408, ["The Artistocats", "Aristocats"]],
+    3: [71357738, ["NewJeans"]],
+    4: [25276055, ["Ariana Grande", "Ariana", "Grande"]],
+    5: [454754, ["Stanley Tucci", "Tucci", "Stanley Tucci Jr."]],
+    6: [496020, ["Arrested Development"]],
+    7: [4501, ["Black Death", "The Black Death", "The Plague"]],
+    8: [18571859, ["Hachi: A Dog's Tale", "Hachi", "A Dog's Tale"]],
+    9: [2965870, ["Canelé", "Cannelé", "Canele"]],
+    10: [1690149, ["Sephora", "Sephora SA"]],
 }
 
 const allQuestions = [QuestionPages, QuestionPagesDayTwo, QuestionPagesDayThree,
-  QuestionPagesDayFour, QuestionPagesDayFive,
+  QuestionPagesDayFour, QuestionPagesErin,
 ]
 
 export default allQuestions;
