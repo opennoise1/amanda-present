@@ -17,7 +17,9 @@ const getTodaysQuestions = () => {
         case "410": return allQuestions[2];
         case "411": return allQuestions[3];
         case "54": return allQuestions[4];
-        default: return allQuestions[4];
+        case "725": return allQuestions[5];
+        case "726": return allQuestions[5]; // In case Iris doesn't look at it until the day after her birthday
+        default: return allQuestions[5];
     }
 }
 

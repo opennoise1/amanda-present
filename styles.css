@@ -8,9 +8,9 @@
 body {
     --tw-bg-opacity: 1;
     background-color: rgb(2 44 34 / var(--tw-bg-opacity, 1));
-    background-image: url(./assets/erinfishing.png);
+    background-image: url(./assets/capybara.png);
     background-repeat: no-repeat;
-    background-position: right 25px;
+    background-position: 80% 25px;
     color: rgb(254 243 199 / var(--tw-text-opacity, 1));
     font-family: "Alegreya", ui-serif, "Georgia", "Cambria", "Times New Roman", "Times", serif;
     font-optical-sizing: auto;

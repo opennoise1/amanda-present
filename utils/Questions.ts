@@ -64,8 +64,21 @@ const QuestionPagesErin: { [key: number] : [number, string[]] } = {
     10: [1690149, ["Sephora", "Sephora SA"]],
 }
 
+const QuestionPagesIris: { [key: number] : [number, string[]] } = {
+    1: [48109, ["Miffy"]],
+    2: [17209001, ["Troye Sivan", "Troye", "Sivan", "Troy Sivan", "Troye Sivan Mellet"]],
+    3: [4221870, ["Conan O'Brien", "Conan"]],
+    4: [5134, ["Chess"]],
+    5: [650592, ["Otis Worldwide", "Otis Worldwide Corporation", "Otis", "OTIS", "Otis Elevator Company"]],
+    6: [1573080, ["Bob Iger", "Iger", "Robert Iger", "Robert Alan Iger"]],
+    7: [14734, ["Iron", "Fe"]],
+    8: [1380297, ["James Turrell"]],
+    9: [22015, ["Neopets"]],
+    10: [18667376, ["Bananagrams"]],
+}
+
 const allQuestions = [QuestionPages, QuestionPagesDayTwo, QuestionPagesDayThree,
-  QuestionPagesDayFour, QuestionPagesErin,
+  QuestionPagesDayFour, QuestionPagesErin, QuestionPagesIris,
 ]
 
 export default allQuestions;
